@@ -19,7 +19,7 @@ import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
 import net.neoforged.neoforge.common.loot.LootModifier;
 
 public class HuskLootModifier extends LootModifier {
-    private static final Item sandDrop = BuiltInRegistries.ITEM.get(ResourceLocation.parse("sand"));
+    private static final Item sandDrop = BuiltInRegistries.ITEM.get(new ResourceLocation("sand"));
     public static final MapCodec<HuskLootModifier> CODEC = RecordCodecBuilder.mapCodec(inst ->
             LootModifier.codecStart(inst).apply(inst, HuskLootModifier::new));
 
@@ -41,8 +41,7 @@ public class HuskLootModifier extends LootModifier {
 
         if(player != null) {
             ItemStack weapon = player.getMainHandItem();
-            int lootingLevel = EnchantmentHelper.getItemEnchantmentLevel(
-                    lootContext.getLevel().registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.LOOTING), weapon);
+            int lootingLevel = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.LOOTING, weapon);
 
             if (lootingLevel > 0)
                 rolls = rolls + random.nextIntBetweenInclusive(0, lootingLevel);
