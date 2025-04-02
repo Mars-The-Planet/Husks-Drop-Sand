@@ -17,7 +17,7 @@ public class HusksSand implements ModInitializer {
         CommonClass.init();
 
         LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
-            if (key.equals(EntityType.HUSK.getDefaultLootTable())) {
+            if (key.equals(EntityType.HUSK.getDefaultLootTable().get())) {
                 LootPool poolBuilder = LootPool.lootPool()
                         .setRolls(ConstantValue.exactly(1))
                         .add(LootItem.lootTableItem(Items.SAND)
