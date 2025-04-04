@@ -6,12 +6,11 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.functions.LootingEnchantFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
-import static net.minecraft.world.level.storage.loot.functions.LootingEnchantFunction.*;
+import static net.minecraft.world.level.storage.loot.functions.LootingEnchantFunction.lootingMultiplier;
 
 public class HusksSand implements ModInitializer {
     @Override
