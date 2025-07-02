@@ -2,7 +2,6 @@ package com.mars.huskssand;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraftforge.common.loot.IGlobalLootModifier;
-import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -23,7 +22,7 @@ public class HusksSand {
     public HusksSand() {
         CommonClass.init();
 
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        var modEventBus = FMLJavaModLoadingContext.get().getModBusGroup();
         GLOBAL_LOOT_MODIFIER_SERIALIZERS.register(modEventBus);
     }
 }
