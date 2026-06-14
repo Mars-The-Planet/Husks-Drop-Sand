@@ -22,8 +22,8 @@ public class HuskLootModifier extends LootModifier {
     public static final MapCodec<HuskLootModifier> CODEC = RecordCodecBuilder.mapCodec(inst ->
             LootModifier.codecStart(inst).apply(inst, HuskLootModifier::new));
 
-    public HuskLootModifier(LootItemCondition[] conditionsIn) {
-        super(conditionsIn);
+    public HuskLootModifier(LootItemCondition[] conditionsIn, int priority) {
+        super(conditionsIn, priority);
     }
 
     @Override
