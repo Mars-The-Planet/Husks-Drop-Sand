@@ -3,6 +3,7 @@ package com.mars.huskssand;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -17,7 +18,7 @@ public class HusksSand implements ModInitializer {
         CommonClass.init();
 
         LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
-            if (key.equals(EntityType.HUSK.getDefaultLootTable().get())) {
+            if (key.equals(EntityTypes.HUSK.getDefaultLootTable().get())) {
                 LootPool poolBuilder = LootPool.lootPool()
                         .setRolls(ConstantValue.exactly(1))
                         .add(LootItem.lootTableItem(Items.SAND)
