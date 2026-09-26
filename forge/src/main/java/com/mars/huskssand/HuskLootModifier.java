@@ -26,7 +26,6 @@ public class HuskLootModifier extends LootModifier {
 
     public HuskLootModifier(LootItemCondition[] conditionsIn) {
         super(conditionsIn);
-        Constants.LOG.info("HuskLootModifier loaded with {} conditions", conditionsIn.length);
     }
 
     @Override
@@ -51,8 +50,6 @@ public class HuskLootModifier extends LootModifier {
         }
 
         generatedLoot.add(new ItemStack(sandDrop, rolls));
-
-        Constants.LOG.info("Husk GLM fired: table={}, rolls={}", lootContext.getQueriedLootTableId(), rolls);
 
         return generatedLoot;
     }
