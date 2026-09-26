@@ -26,6 +26,7 @@ public class HuskLootModifier extends LootModifier {
 
     public HuskLootModifier(LootItemCondition[] conditionsIn) {
         super(conditionsIn);
+        Constants.LOG.info("HuskLootModifier loaded with {} conditions", conditionsIn.length);
     }
 
     @Override
@@ -38,7 +39,7 @@ public class HuskLootModifier extends LootModifier {
 
         RandomSource random = lootContext.getRandom();
         int rolls = random.nextIntBetweenInclusive(HusksSandConfig.min_rolls, HusksSandConfig.max_rolls);
-        Player player = lootContext.getOptionalParameter(LootContextParams.LAST_DAMAGE_PLAYER);
+        Player player = lootContext.getOptional(LootContextParams.LAST_DAMAGE_PLAYER);
 
         if(player != null) {
             ItemStack weapon = player.getMainHandItem();
@@ -50,6 +51,8 @@ public class HuskLootModifier extends LootModifier {
         }
 
         generatedLoot.add(new ItemStack(sandDrop, rolls));
+
+        Constants.LOG.info("Husk GLM fired: table={}, rolls={}", lootContext.getQueriedLootTableId(), rolls);
 
         return generatedLoot;
     }
